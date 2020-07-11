@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="panel panel-default">
+    <div th:insert="fragments/menu.html">
+    </div>
+    <div class="d-inline p-2 bg-dark text-white">Faça seu Pedido!</div>
+
+        <div class="panel-body">
+            <form th:object="${pedido}" th:action="@{/fazerPedido}" method="post">
+
+
+
+
+        <div class="form-group">
+            <label th:field="nome">Nome do Cliente</label>
+            <input type="text" class="form-control" th:field="*{nome}" placeholder="Digite o seu nome para a entrega">
+        </div>
+
+        <div class="form-group">
+            <label th:field="celular">Telefone</label>
+            <input type="text" class="form-control" th:field="*{celular}" placeholder="Digite o seu telefone para contato com o DDD">
+        </div>
+
+        <div class="form-group">
+            <label th:field="lanche">Lanche</label>
+            <input type="text" class="form-control" th:field="*{lanche}" placeholder="Digite o código do lanche escolhido">
+        </div>
+
+        <div class="form-group">
+            <label th:field="bebida">Bebida</label>
+            <input type="text" class="form-control" th:field="*{bebida}" placeholder="Digite o código da bebida escolhido">
+        </div>
+
+        <div class="form-group">
+            <label th:field="adicional">Adicional</label>
+            <input type="text" class="form-control" th:field="*{adicional}" placeholder="Digite o id do adicional escolhido">
+        </div>
+
+        <div class="form-group">
+            <label th:field="cep">Cep</label>
+            <input type="text" class="form-control" th:field="*{cep}" placeholder="Digite seu Cep">
+        </div>
+
+        <div class="form-group">
+            <label th:field="endereco">Endereço</label>
+            <input type="text" class="form-control" th:field="*{endereco}">
+        </div>
+
+        <div class="form-group">
+            <label th:field="numero">Nº</label>
+            <input type="text" class="form-control" th:field="*{numero}">
+        </div>
+
+
+        <div class="form-group">
+            <label th:field="complemento">Complemento</label>
+            <input type="text" class="form-control" th:field="*{complemento}" placeholder="Escreva caso se houver algum ponto de referência">
+        </div>
+
+        <div class="form-group">
+            <label th:field="municipio">Município</label>
+            <input type="text" class="form-control" th:field="*{municipio}">
+        </div>
+
+        <div class="form-group">
+            <label th:field="uf">Estado</label>
+            <input type="text" class="form-control" th:field="*{uf}">
+        </div>
+        <label>Escolha sua forma de pagamento:</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" th:field="*{formPgt}" id="Cartao" value="Cartao">
+            <label class="form-check-label" for="Cartao">Cartão</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" th:field="*{formPgt}" id="Dinheiro" value="Dinheiro">
+            <label class="form-check-label" for="Dinheiro">Dinheiro</label>
+        </div>
+
+
+        <div>
+            <input value="Fazer Pedido" type="submit"/>
+        </div>
+
+
+</form>
+        </div>
+</div>
+</body>

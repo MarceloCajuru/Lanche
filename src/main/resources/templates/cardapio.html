@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="panel panel-default">
+    <div th:insert="fragments/menu.html">
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id do Lanche</th>
+            <th scope="col">Nome do Lanche</th>
+            <th scope="col">Ingredientes</th>
+            <th scope="col">Preço</th>
+        </tr>
+
+        <tbody>
+        <tr th:each="lanche : ${lanches}">
+
+            <td th:text="${lanche.id}"></td>
+            <td th:text="${lanche.nomeLanche}"></td>
+            <td th:text="${lanche.ingredientes}"></td>
+            <td th:text="${lanche.preco}"></td>
+
+            <td>
+
+    </table>
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Id da bebida</th>
+            <th scope="col">Nome da Bebida</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Preço</th>
+        </tr>
+
+        <tbody>
+        <tr th:each="bebida : ${bebidas}">
+
+            <td th:text="${bebida.id}"></td>
+            <td th:text="${bebida.nomeBebida}"></td>
+            <td th:text="${bebida.marcaBebida}"></td>
+            <td th:text="${bebida.preco}"></td>
+
+            <td>
+
+
+        </thead>
+    </table>
+
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">Id do adicional</th>
+            <th scope="col">Nome do adicional</th>
+            <th scope="col">Preço</th>
+        </tr>
+
+        <tbody>
+        <tr th:each="adicional : ${adicionais}">
+
+            <td th:text="${adicional.id}"></td>
+            <td th:text="${adicional.nomeAdicional}"></td>
+            <td th:text="${adicional.preco}"></td>
+
+            <td>
+
+        </thead>
+
+    </table>
+
+</div>
+</body>

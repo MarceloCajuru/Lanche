@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="panel panel-default">
+    <div th:insert="fragments/menu.html">
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nº do Pedido</th>
+            <th scope="col">Nome do Cliente</th>
+            <th scope="col">Telefone para contato</th>
+            <th scope="col">Código do lanche escolhido</th>
+            <th scope="col">Código da bebida escolhido</th>
+            <th scope="col">Código adicional escolhido</th>
+            <th scope="col">Endereço do Cliente</th>
+            <th scope="col">Número</th>
+            <th scope="col">Complemento</th>
+            <th scope="col">Forma de Pagamento</th>
+            <th scope="col">Ações</th>
+
+        </tr>
+        </thead>
+
+<tbody>
+<tr th:each="pedido : ${pedidosProcessados}">
+
+   <td th:text="${pedido.id}"></td>
+    <td th:text="${pedido.nome}"></td>
+    <td th:text="${pedido.celular}"></td>
+    <td th:text="${pedido.lanche}"></td>
+    <td th:text="${pedido.bebida}"></td>
+    <td th:text="${pedido.adicional}"></td>
+    <td th:text="${pedido.endereco}"></td>
+    <td th:text="${pedido.numero}"></td>
+    <td th:text="${pedido.complemento}"></td>
+    <td th:text="${pedido.formPgt}"></td>
+
+    <td>
+
+        <a th:href="@{/excluirPedido/{id} (id = ${pedido.id})}"><img src="img/pedidoConcluidoIcon.svg"></a>
+
+
+    </td>
+
+</tbody>
+
+
+
+
+
+
+</tbody>
+
+    </table>
+</div>
+</body>
