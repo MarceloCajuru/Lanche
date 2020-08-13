@@ -7,13 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
 
-@GetMapping("/")
+    @GetMapping("/")
     public String index() {
-    return "index";
-}
+        return "index";
+    }
+
     @GetMapping("/Sobre")
     public String sobre() {
         return "sobre";
     }
 
+
+    @GetMapping("/Calculadora")
+    public String calculadora() {
+        return "calculadora";
+    }
 }

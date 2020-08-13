@@ -4,6 +4,7 @@ package com.lanchetero.lanche.Model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -19,7 +20,7 @@ public class Lanche {
     private int id;
 
     @Column
-   @NotEmpty(message = "adoiasjd")
+   @NotBlank(message = "adoiasjd")
     @Size(max = 20, min = 3)
     private String nomeLanche;
 
